@@ -33,6 +33,14 @@
         "cwd": "apps/chat-talk"
       }
     },
+
+    "test": {
+      "executor": "@nxlv/python:run-commands",
+      "options": {
+        "command": "sam build && sam local invoke ChatTalkFunction --env-vars ./events/env.json --event ./events/event.json",
+        "cwd": "apps/chat-talk"
+      }
+    },
     "lock": {
       "executor": "@nxlv/python:run-commands",
       "options": {
@@ -54,9 +62,7 @@
     },
     "build": {
       "executor": "@nxlv/python:build",
-      "outputs": [
-        "{projectRoot}/dist"
-      ],
+      "outputs": ["{projectRoot}/dist"],
       "options": {
         "outputPath": "apps/chat-talk/dist",
         "publish": false,
@@ -76,9 +82,7 @@
     },
     "lint": {
       "executor": "@nxlv/python:flake8",
-      "outputs": [
-        "{workspaceRoot}/reports/apps/chat-talk/pylint.txt"
-      ],
+      "outputs": ["{workspaceRoot}/reports/apps/chat-talk/pylint.txt"],
       "options": {
         "outputFile": "reports/apps/chat-talk/pylint.txt"
       }

@@ -1,17 +1,38 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "production": [
-      "default"
+      "default",
+      "!{projectRoot}/.eslintrc.json",
+      "!{projectRoot}/eslint.config.js"
     ],
     "sharedGlobals": []
   },
   "plugins": [
-    "@nxlv/python"
+    "@nxlv/python",
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview"
+      }
+    },
+    {
+      "plugin": "@nx/eslint/plugin",
+      "options": {
+        "targetName": "lint"
+      }
+    }
   ],
-  "nxCloudAccessToken": "NGU2YjU4ZGUtNzZiZS00YjFiLWIyNDUtMDFiNTk3ZGUxMzFmfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "NGU2YjU4ZGUtNzZiZS00YjFiLWIyNDUtMDFiNTk3ZGUxMzFmfHJlYWQtd3JpdGU=",
+  "generators": {
+    "@nx/web:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "none",
+      "e2eTestRunner": "none"
+    }
+  }
 }

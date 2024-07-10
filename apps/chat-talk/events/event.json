@@ -53,6 +53,11 @@
       "userAgent": "Custom User Agent String",
       "user": null
     },
+    "authorizer": {
+      "claims": {
+        "cognito:username": "test-user-01"
+      }
+    },
     "path": "/prod/hello",
     "resourcePath": "/hello",
     "httpMethod": "POST",

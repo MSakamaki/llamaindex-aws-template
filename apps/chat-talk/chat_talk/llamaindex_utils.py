@@ -10,6 +10,7 @@ from llama_index.core import StorageContext
 # s3 = boto3.client('s3')
 bucket_name = os.environ['BUCKET_NAME']  
 persist_dir = '/tmp/vector_store'
+print(f'Bucket name: {bucket_name}')
 
 def download_dir(client, resource, dist, local='/tmp', bucket='your_bucket'):
   paginator = client.get_paginator('list_objects')
