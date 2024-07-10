@@ -4,6 +4,35 @@
   "projectType": "application",
   "sourceRoot": "apps/chat-talk/chat_talk",
   "targets": {
+    "build": {
+      "executor": "@nxlv/python:run-commands",
+      "options": {
+        "command": "sam build",
+        "cwd": "apps/chat-talk"
+      }
+    },
+    "build_nocache": {
+      "executor": "@nxlv/python:run-commands",
+      "options": {
+        "command": "sam build --no-cached",
+        "cwd": "apps/chat-talk"
+      }
+    },
+
+    "deploy": {
+      "executor": "@nxlv/python:run-commands",
+      "options": {
+        "command": "sam build && sam deploy",
+        "cwd": "apps/chat-talk"
+      }
+    },
+    "deploy_guided": {
+      "executor": "@nxlv/python:run-commands",
+      "options": {
+        "command": "sam build && sam deploy --guided",
+        "cwd": "apps/chat-talk"
+      }
+    },
     "lock": {
       "executor": "@nxlv/python:run-commands",
       "options": {

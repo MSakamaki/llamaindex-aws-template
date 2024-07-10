@@ -1,0 +1,19 @@
+version = 0.1
+[default]
+[default.global.parameters]
+stack_name = "chat-talk-v1"
+
+[default.build.parameters]
+cached = true
+parallel = true
+
+
+[default.deploy.parameters]
+resolve_s3 = true
+s3_prefix = "chat-talk-v1"
+region = "ap-northeast-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = ["ChatTalkFunction=752046161158.dkr.ecr.ap-northeast-1.amazonaws.com/chattalkdb18b3ee/chattalkfunction1fdc5da2repo"]
+parameter_overrides = "BucketName=\"chat-talk-v1-store\""
+
